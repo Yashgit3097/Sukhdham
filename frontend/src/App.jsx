@@ -281,7 +281,7 @@ const App = () => {
         {/* main heading */}
         <div
           style={{
-            color: "#101828"
+            color: "#2563EB"
           }}
           className="text-4xl font-bold  text-center pt-5">
           ShukhDham Jwellers
@@ -289,7 +289,7 @@ const App = () => {
 
         {/* acknowledgement */}
         <div style={{
-          color: "#364153"
+          color: "#3B82F6"
         }} className="text-xl font-semibold  text-center pt-2">
           (Rakesh.j.soni) A.C : 10681641274
         </div>
