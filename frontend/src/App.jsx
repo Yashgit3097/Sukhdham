@@ -284,7 +284,7 @@ const App = () => {
             color: "#2563EB"
           }}
           className="text-4xl font-bold  text-center pt-5">
-          ShukhDham Jewelers
+          SUKHDHAM JEWELLERS 
         </div>
 
         {/* acknowledgement */}
