@@ -230,7 +230,7 @@ const App = () => {
           <input type="text" name="presencePerson" placeholder="Presence of (Person)" className="border p-2" onChange={handleInputChange} />
           <input type="text" name="place" placeholder="Place" className="border p-2" onChange={handleInputChange} />
           <input type="date" name="date" className="border p-2" onChange={handleInputChange} />
-          <input type="text" name="acc" placeholder="Account Number" className="border p-2" onChange={handleInputChange} />
+          <input type="text" name="acc" placeholder="Customer Account Number" className="border p-2" onChange={handleInputChange} />
           <input type="text" name="branch" placeholder="Branch Name" className="border p-2" onChange={handleInputChange} />
         </div>
 
@@ -378,7 +378,7 @@ const App = () => {
 
         <div className="flex justify-between items-center pt-[0.5px] px-12 pb-10">
           <div>
-            <div>Place: {formData.place || "................"}<br />Date: Date: {formData.date ? formatDate(formData.date) : "................"}</div>
+            <div>Place: {formData.place || "................"}<br />Date: {formData.date ? formatDate(formData.date) : "................"}</div>
             <div className="pt-14">Name and Signature of the Borrower</div>
           </div>
           <div className="text-right">
