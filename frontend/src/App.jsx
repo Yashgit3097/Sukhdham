@@ -222,41 +222,128 @@ const App = () => {
         <h2 className="text-xl font-bold mb-2">Enter Certificate Details</h2>
 
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <input type="text" name="borrowerName" placeholder="Borrower's Name" className="border p-2" onChange={handleInputChange} />
-          <input type="text" name="relative" placeholder="Relative Name" className="border p-2" onChange={handleInputChange} />
-          <input type="text" name="address" placeholder="Address" className="border p-2" onChange={handleInputChange} />
-          <input type="date" name="appraisalDate" className="border p-2" onChange={handleInputChange} />
-          <input type="text" name="presencePerson" placeholder="Presence of (Person)" className="border p-2" onChange={handleInputChange} />
-          <input type="text" name="place" placeholder="Place" className="border p-2" onChange={handleInputChange} />
-          <input type="date" name="date" className="border p-2" onChange={handleInputChange} />
-          <input type="text" name="acc" placeholder="Customer Account Number" className="border p-2" onChange={handleInputChange} />
-          <input type="text" name="branch" placeholder="Branch Name" className="border p-2" onChange={handleInputChange} />
+        <div className="border border-gray-300 p-6 rounded-xl shadow-sm mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <input
+              type="text"
+              name="borrowerName"
+              placeholder="Borrower's Name"
+              className="border p-2"
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              name="relative"
+              placeholder="Relative Name"
+              className="border p-2"
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              name="address"
+              placeholder="Address"
+              className="border p-2"
+              onChange={handleInputChange}
+            />
+            <input
+              type="date"
+              name="appraisalDate"
+              className="border p-2"
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              name="presencePerson"
+              placeholder="Presence of (Person)"
+              className="border p-2"
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              name="place"
+              placeholder="Place"
+              className="border p-2"
+              onChange={handleInputChange}
+            />
+            <input
+              type="date"
+              name="date"
+              className="border p-2"
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              name="acc"
+              placeholder="Customer Account Number"
+              className="border p-2"
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              name="branch"
+              placeholder="Branch Name"
+              className="border p-2"
+              onChange={handleInputChange}
+            />
+          </div>
         </div>
+
 
         <h3 className="text-lg font-semibold mt-6 mb-2">Add Article Rows</h3>
         {items.map((item, idx) => (
-          <div key={idx} className="grid grid-cols-1 md:grid-cols-7 gap-2 mb-2">
-            <input className="border p-1" placeholder="Description" value={item.description} onChange={e => handleItemChange(idx, 'description', e.target.value)} />
-            <input className="border p-1" placeholder="Quantity" value={item.quantity} onChange={e => handleItemChange(idx, 'quantity', e.target.value)} />
-            <input className="border p-1" placeholder="Gross Wt" value={item.grossWeight} onChange={e => handleItemChange(idx, 'grossWeight', e.target.value)} />
-            <input className="border p-1" placeholder="Stone Wt" value={item.stoneWeight} onChange={e => handleItemChange(idx, 'stoneWeight', e.target.value)} />
-            <select className="border p-1" value={item.purity} onChange={e => handleItemChange(idx, 'purity', e.target.value)}>
-              <option value=" ">select purity</option>
-              <option value="18">18</option>
-              <option value="20">20</option>
-              <option value="22">22</option>
-              <option value="24">24</option>
-            </select>
-            <input
-              className="border p-1"
-              placeholder="Rate (₹/1g)"
-              value={item.itemRate}
-              onChange={e => handleItemChange(idx, 'itemRate', e.target.value)}
-            />
-            <input className="border p-1" placeholder="Value ₹" value={item.value} readOnly />
+          <div key={idx} className="border border-gray-300 p-4 rounded-xl shadow-sm mb-4">
+            <div className="grid grid-cols-1 md:grid-cols-7 gap-2">
+              <input
+                className="border p-1"
+                placeholder="Description"
+                value={item.description}
+                onChange={e => handleItemChange(idx, 'description', e.target.value)}
+              />
+              <input
+                className="border p-1"
+                placeholder="Quantity"
+                value={item.quantity}
+                onChange={e => handleItemChange(idx, 'quantity', e.target.value)}
+              />
+              <input
+                className="border p-1"
+                placeholder="Gross Wt"
+                value={item.grossWeight}
+                onChange={e => handleItemChange(idx, 'grossWeight', e.target.value)}
+              />
+              <input
+                className="border p-1"
+                placeholder="Stone Wt"
+                value={item.stoneWeight}
+                onChange={e => handleItemChange(idx, 'stoneWeight', e.target.value)}
+              />
+              <select
+                className="border p-1"
+                value={item.purity}
+                onChange={e => handleItemChange(idx, 'purity', e.target.value)}
+              >
+                <option value=" ">select purity</option>
+                <option value="18">18</option>
+                <option value="20">20</option>
+                <option value="22">22</option>
+                <option value="24">24</option>
+              </select>
+              <input
+                className="border p-1"
+                placeholder="Rate (₹/10g)"
+                value={item.itemRate}
+                onChange={e => handleItemChange(idx, 'itemRate', e.target.value)}
+              />
+              <input
+                className="border p-1 bg-gray-100"
+                placeholder="Value ₹"
+                value={item.value}
+                readOnly
+              />
+            </div>
           </div>
         ))}
+
         <button onClick={addItemRow} className="bg-green-500 text-white px-4 py-1 mt-2 rounded hover:bg-green-600">Add Row</button>
       </div>
 
@@ -284,7 +371,7 @@ const App = () => {
             color: "#2563EB"
           }}
           className="text-4xl font-bold  text-center pt-5">
-          SUKHDHAM JEWELLERS 
+          SUKHDHAM JEWELLERS
         </div>
 
         {/* acknowledgement */}
