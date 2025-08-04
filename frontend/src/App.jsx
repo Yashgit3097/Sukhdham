@@ -88,6 +88,7 @@
 
 import React, { useRef, useState } from 'react';
 import html2pdf from 'html2pdf.js';
+import InstallPWA from './InstallPWA ';
 
 const App = () => {
   const pdfRef = useRef();
@@ -386,7 +387,9 @@ const App = () => {
           </div>
         </div>
       </div>
+      <InstallPWA />
     </div>
+
   );
 };
 
