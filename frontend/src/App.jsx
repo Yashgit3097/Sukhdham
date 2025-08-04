@@ -139,7 +139,7 @@ const App = () => {
     if (!isNaN(net) && !isNaN(pur) && !isNaN(rt)) {
       // Calculate based on purity (22 carat is standard)
       const purityFactor = pur / 22;
-      return ((net * rt * purityFactor) / 10).toFixed(2);
+      return ((net * rt * purityFactor) / 1).toFixed(2);
     }
     return '';
   };
