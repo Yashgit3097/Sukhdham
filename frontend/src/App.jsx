@@ -275,8 +275,6 @@ const App = () => {
           minHeight: '1120px',
           padding: '20px',
           border: '2px solid black',
-          boxSizing: 'border-box',
-          position: 'relative'
         }}
       >
         {/* main heading */}
