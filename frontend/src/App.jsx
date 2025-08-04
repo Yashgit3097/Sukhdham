@@ -291,7 +291,7 @@ const App = () => {
         <div style={{
           color: "#364153"
         }} className="text-xl font-semibold  text-center pt-2">
-          (Rakesh.j.soni : 10681641274)
+          (Rakesh.j.soni) A.C : 10681641274
         </div>
 
         {/* subheading */}
