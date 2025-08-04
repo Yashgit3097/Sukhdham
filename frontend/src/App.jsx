@@ -183,7 +183,7 @@ const App = () => {
         letterRendering: true,
         useCORS: true,
         width: 850,
-        height: 1200,
+        minHeight: 1000,
         windowWidth: 850
       },
       jsPDF: {
@@ -272,8 +272,8 @@ const App = () => {
         className='pdf-container bg-white mx-auto'
         style={{
           width: '800px',
-          minHeight: '1120px',
-          padding: '20px',
+          minHeight: '1000px',
+          padding: '10px',
           border: '2px solid black',
         }}
       >
@@ -375,7 +375,7 @@ const App = () => {
           the Bank against any loss it may sustain on account of any inaccuracy in the above appraisal.
         </p>
 
-        <div className="flex justify-between items-center pt-6 px-12 pb-10">
+        <div className="flex justify-between items-center pt-[0.5px] px-12 pb-10">
           <div>
             <div>Place: {formData.place || "................"}<br />Date: Date: {formData.date ? formatDate(formData.date) : "................"}</div>
             <div className="pt-14">Name and Signature of the Borrower</div>
