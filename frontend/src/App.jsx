@@ -250,7 +250,7 @@ const App = () => {
             </select>
             <input
               className="border p-1"
-              placeholder="Rate (₹/10g)"
+              placeholder="Rate (₹/1g)"
               value={item.itemRate}
               onChange={e => handleItemChange(idx, 'itemRate', e.target.value)}
             />
