@@ -221,131 +221,202 @@ const App = () => {
       <div className="mb-6">
         <h2 className="text-xl font-bold mb-2">Enter Certificate Details</h2>
 
-
         <div className="border border-gray-300 p-6 rounded-xl shadow-sm mb-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <input
-              type="text"
-              name="borrowerName"
-              placeholder="Borrower's Name"
-              className="border p-2"
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              name="relative"
-              placeholder="Relative Name"
-              className="border p-2"
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              name="address"
-              placeholder="Address"
-              className="border p-2"
-              onChange={handleInputChange}
-            />
-            <input
-              type="date"
-              name="appraisalDate"
-              className="border p-2"
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              name="presencePerson"
-              placeholder="Presence of (Person)"
-              className="border p-2"
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              name="place"
-              placeholder="Place"
-              className="border p-2"
-              onChange={handleInputChange}
-            />
-            <input
-              type="date"
-              name="date"
-              className="border p-2"
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              name="acc"
-              placeholder="Customer Account Number"
-              className="border p-2"
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              name="branch"
-              placeholder="Branch Name"
-              className="border p-2"
-              onChange={handleInputChange}
-            />
+            <div>
+              <label htmlFor="borrowerName" className="block mb-1 font-medium">કસ્ટમર નામ
+              </label>
+              <input
+                type="text"
+                id="borrowerName"
+                name="borrowerName"
+                placeholder="Borrower's Name"
+                className="border p-2 w-full"
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="relative" className="block mb-1 font-medium">સગા સંબંધી નું નામ
+              </label>
+              <input
+                type="text"
+                id="relative"
+                name="relative"
+                placeholder="Relative Name"
+                className="border p-2 w-full"
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="address" className="block mb-1 font-medium">એડ્રેસ
+              </label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                placeholder="Address"
+                className="border p-2 w-full"
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="appraisalDate" className="block mb-1 font-medium">તારીખ
+              </label>
+              <input
+                type="date"
+                id="appraisalDate"
+                name="appraisalDate"
+                className="border p-2 w-full"
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="presencePerson" className="block mb-1 font-medium">જામીન વ્યક્તિ નું નામ
+              </label>
+              <input
+                type="text"
+                id="presencePerson"
+                name="presencePerson"
+                placeholder="Presence of (Person)"
+                className="border p-2 w-full"
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="place" className="block mb-1 font-medium">સ્થળ
+              </label>
+              <input
+                type="text"
+                id="place"
+                name="place"
+                placeholder="Place"
+                className="border p-2 w-full"
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="date" className="block mb-1 font-medium">તારીખ</label>
+              <input
+                type="date"
+                id="date"
+                name="date"
+                className="border p-2 w-full"
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="acc" className="block mb-1 font-medium">કસ્ટમર એકાઉન્ટ નંબર
+              </label>
+              <input
+                type="text"
+                id="acc"
+                name="acc"
+                placeholder="Customer Account Number"
+                className="border p-2 w-full"
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="branch" className="block mb-1 font-medium">બ્રાંચ નું નામ
+              </label>
+              <input
+                type="text"
+                id="branch"
+                name="branch"
+                placeholder="Branch Name"
+                className="border p-2 w-full"
+                onChange={handleInputChange}
+              />
+            </div>
           </div>
         </div>
 
-
-        <h3 className="text-lg font-semibold mt-6 mb-2">Add Article Rows</h3>
+        <h3 className="text-lg font-semibold mt-6 mb-2">ટેબલ મા વસ્તુ ઉમેરો
+        </h3>
         {items.map((item, idx) => (
           <div key={idx} className="border border-gray-300 p-4 rounded-xl shadow-sm mb-4">
             <div className="grid grid-cols-1 md:grid-cols-7 gap-2">
-              <input
-                className="border p-1"
-                placeholder="Description"
-                value={item.description}
-                onChange={e => handleItemChange(idx, 'description', e.target.value)}
-              />
-              <input
-                className="border p-1"
-                placeholder="Quantity"
-                value={item.quantity}
-                onChange={e => handleItemChange(idx, 'quantity', e.target.value)}
-              />
-              <input
-                className="border p-1"
-                placeholder="Gross Wt"
-                value={item.grossWeight}
-                onChange={e => handleItemChange(idx, 'grossWeight', e.target.value)}
-              />
-              <input
-                className="border p-1"
-                placeholder="Stone Wt"
-                value={item.stoneWeight}
-                onChange={e => handleItemChange(idx, 'stoneWeight', e.target.value)}
-              />
-              <select
-                className="border p-1"
-                value={item.purity}
-                onChange={e => handleItemChange(idx, 'purity', e.target.value)}
-              >
-                <option value=" ">select purity</option>
-                <option value="18">18</option>
-                <option value="20">20</option>
-                <option value="22">22</option>
-                <option value="24">24</option>
-              </select>
-              <input
-                className="border p-1"
-                placeholder="Rate (₹/10g)"
-                value={item.itemRate}
-                onChange={e => handleItemChange(idx, 'itemRate', e.target.value)}
-              />
-              <input
-                className="border p-1 bg-gray-100"
-                placeholder="Value ₹"
-                value={item.value}
-                readOnly
-              />
+              <div>
+                <label className="block mb-1 font-medium">વસ્તુ નું નામ
+                </label>
+                <input
+                  className="border p-1 w-full"
+                  placeholder="Description"
+                  value={item.description}
+                  onChange={e => handleItemChange(idx, 'description', e.target.value)}
+                />
+              </div>
+              <div>
+                <label className="block mb-1 font-medium">સંખ્યા
+                </label>
+                <input
+                  className="border p-1 w-full"
+                  placeholder="Quantity"
+                  value={item.quantity}
+                  onChange={e => handleItemChange(idx, 'quantity', e.target.value)}
+                />
+              </div>
+              <div>
+                <label className="block mb-1 font-medium">કુલ વજન</label>
+                <input
+                  className="border p-1 w-full"
+                  placeholder="Gross Wt"
+                  value={item.grossWeight}
+                  onChange={e => handleItemChange(idx, 'grossWeight', e.target.value)}
+                />
+              </div>
+              <div>
+                <label className="block mb-1 font-medium">લેશ વજન
+                </label>
+                <input
+                  className="border p-1 w-full"
+                  placeholder="Stone Wt"
+                  value={item.stoneWeight}
+                  onChange={e => handleItemChange(idx, 'stoneWeight', e.target.value)}
+                />
+              </div>
+              <div>
+                <label className="block mb-1 font-medium">શુદ્ધતા
+                </label>
+                <select
+                  className="border p-1 w-full"
+                  value={item.purity}
+                  onChange={e => handleItemChange(idx, 'purity', e.target.value)}
+                >
+                  <option value=" ">Select purity</option>
+                  <option value="18">18</option>
+                  <option value="20">20</option>
+                  <option value="22">22</option>
+                  <option value="24">24</option>
+                </select>
+              </div>
+              <div>
+                <label className="block mb-1 font-medium">ભાવ
+                  (₹/1g)</label>
+                <input
+                  className="border p-1 w-full"
+                  placeholder="Rate (₹/1g)"
+                  value={item.itemRate}
+                  onChange={e => handleItemChange(idx, 'itemRate', e.target.value)}
+                />
+              </div>
+              <div>
+                <label className="block mb-1 font-medium">ટોટલ
+                  ₹</label>
+                <input
+                  className="border p-1 w-full bg-gray-100"
+                  placeholder="Value ₹"
+                  value={item.value}
+                  readOnly
+                />
+              </div>
             </div>
           </div>
         ))}
 
         <button onClick={addItemRow} className="bg-green-500 text-white px-4 py-1 mt-2 rounded hover:bg-green-600">Add Row</button>
       </div>
+
 
       <button
         onClick={handleDownload}
