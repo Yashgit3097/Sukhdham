@@ -173,6 +173,23 @@ const App = () => {
     }]);
   };
 
+  const options = [
+    "Set... Butti",
+    "Kangan",
+    "Locket",
+    "Ring",
+    "Bracelet",
+    "Cadu",
+    "Pocha",
+    "Bandhi",
+    "Chain",
+    "Dokyu",
+    "Chain..Pendal",
+    "Tikko",
+    "Pendal",
+    "Latkan",
+    "Kansher"
+  ];
   const handleDownload = () => {
     const element = pdfRef.current;
     const opt = {
@@ -339,12 +356,39 @@ const App = () => {
               <div>
                 <label className="block mb-1 font-medium">વસ્તુ નું નામ
                 </label>
-                <input
-                  className="border p-1 w-full"
-                  placeholder="Description"
-                  value={item.description}
-                  onChange={e => handleItemChange(idx, 'description', e.target.value)}
-                />
+                {items.map((item, idx) => (
+                  <div key={idx} className="mb-4">
+                    <input
+                      list={`jewelry-options-${idx}`}
+                      className="border p-1 w-full"
+                      placeholder="Description"
+                      value={item.description}
+                      onChange={e => handleItemChange(idx, 'description', e.target.value)}
+                    />
+                    <datalist id={`jewelry-options-${idx}`}>
+                      {[
+                        "Set... Butti",
+                        "Kangan",
+                        "Locket",
+                        "Ring",
+                        "Bracelet",
+                        "Cadu",
+                        "Pocha",
+                        "Bandhi",
+                        "Chain",
+                        "Dokyu",
+                        "Chain..Pendal",
+                        "Tikko",
+                        "Pendal",
+                        "Latkan",
+                        "Kansher"
+                      ].map((option, i) => (
+                        <option key={i} value={option} />
+                      ))}
+                    </datalist>
+                  </div>
+                ))}
+
               </div>
               <div>
                 <label className="block mb-1 font-medium">સંખ્યા
