@@ -372,7 +372,7 @@ const App = () => {
                         "Locket",
                         "Ring",
                         "Bracelet",
-                        "Cadu",
+                        "Kadu",
                         "Pocha",
                         "Bandhi",
                         "Chain",
