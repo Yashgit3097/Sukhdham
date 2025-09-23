@@ -366,7 +366,7 @@ const App = () => {
                       onChange={e => handleItemChange(idx, 'description', e.target.value)}
                     />
                     <datalist id={`jewelry-options-${idx}`}>
-                      {[
+                      {["Butti",
                         "Set... Butti",
                         "Kangan",
                         "Locket",
