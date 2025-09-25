@@ -1,91 +1,3 @@
-// import React from 'react';
-
-// const App = () => {
-//   return (
-//     <div className=' w-screen p-5 bg-white flex justify-center items-center'>
-//       <div className='h-full w-[70%] border-2 border-black'>
-//         <div className="title text-4xl font-bold text-center pt-5">ShukhDham Jwellers</div>
-//         <div className="second_title text-2xl font-bold text-center pt-7 underline">APPRAISER CERTIFICATE</div>
-//         {/* headings */}
-//         <div className="heading flex justify-between items-center pt-6 px-20">
-//           <div className="left ">The Branch Manager <br /> state Bank of India <br /> .......... Branch</div>
-//           <div className="right ">
-//             <div className="one px-6">AnneXure - PL-61(1)</div>
-//             <div className="two px-6 pt-1.5 ">AC.No : ..............</div>
-//           </div>
-//         </div>
-//         {/* paragraph */}
-//         <div className="paragraph flex justify-center  flex-col pt-6 px-20"><p className="mb-2">Dear Sir,</p>
-//           <p className="mb-4">
-//             I hereby certify that Sri/Smt ................................................. S/W/D of ............................................... Resident of ..............................................
-//             who has sought gold loan from the Bank is not my relative and the gold against which the loan is sought is not purchased from me.
-//             The ornaments/Coins have been weighted and appraised by me on .................. in the presence of  Sri/Smt ..................... (Cash in charge) and the exact weight, purity of the metal and market value of each item as on date are indicated below:
-//           </p>
-//         </div>
-//         {/* table */}
-//         <div className="mb-6 pt-6 px-20">
-//           <table className="w-full border-collapse border border-black text-xs">
-//             <thead>
-//               <tr>
-//                 <th className="border border-black p-2 text-left">SI. No.</th>
-//                 <th className="border border-black p-2 text-left">Description of the Article</th>
-//                 <th className="border border-black p-2 text-left">Gross Weight</th>
-//                 <th className="border border-black p-2 text-left">Approximat e weight of the precious stones in the ornaments (Grams)</th>
-//                 <th className="border border-black p-2 text-left">Purity (Carat)</th>
-//                 <th className="border border-black p-2 text-left">Net Weigh t (Gram s)</th>
-//                 <th className="border border-black p-2 text-left">Market Value Rs.</th>
-//               </tr>
-//             </thead>
-//             <tbody>
-//               {/* Empty rows */}
-//               {[...Array(8)].map((_, index) => (
-//                 <tr key={index}>
-//                   <td className="border border-black p-3 h-8"></td>
-//                   <td className="border border-black p-3 h-8"></td>
-//                   <td className="border border-black p-3 h-8"></td>
-//                   <td className="border border-black p-3 h-8"></td>
-//                   <td className="border border-black p-3 h-8"></td>
-//                   <td className="border border-black p-3 h-8"></td>
-//                   <td className="border border-black p-3 h-8"></td>
-//                 </tr>
-//               ))}
-//               {/* Total row */}
-//               <tr>
-//                 <td className="border border-black p-2 font-bold" colSpan="2">Total</td>
-//                 <td className="border border-black p-2"></td>
-//                 <td className="border border-black p-2"></td>
-//                 <td className="border border-black p-2"></td>
-//                 <td className="border border-black p-2"></td>
-//                 <td className="border border-black p-2"></td>
-//               </tr>
-//             </tbody>
-//           </table>
-//         </div>
-//         {/* paragraph */}
-//         <p className="mb-2 pt-2 px-20">
-//           Method(s) used for purity testing:<br />
-//           I solemnly declare that weight, purity of the gold ornaments/precious stones indicated above are correct and I undertake to indemnify the Bank against any loss it may sustain on account of any inaccuracy in the above appraisal.
-//         </p>
-
-//         <div className="heading flex justify-between items-center pt-6 px-20">
-//           <div className="left mb-6"><div>Place :  <br /> Date :</div>
-//             <div className='pt-14'>Name and Signature of the Borrower</div>
-//           </div>
-//           <div className="right ">
-//             <div className="one px-6 mb-6
-//             ">Yours faithfully</div>
-//             <div className="two px-6 pt-9 ">Name & Signature pf the Appraiser</div>
-//           </div>
-//         </div>
-//       </div>
-
-
-//     </div>
-//   );
-// };
-
-// export default App;
-
 import React, { useRef, useState } from 'react';
 import html2pdf from 'html2pdf.js';
 import InstallPWA from './InstallPWA ';
@@ -190,6 +102,7 @@ const App = () => {
     "Latkan",
     "Kansher"
   ];
+
   const handleDownload = () => {
     const element = pdfRef.current;
     const opt = {
@@ -220,6 +133,7 @@ const App = () => {
       element.style.width = originalWidth;
     });
   };
+
   const formatDate = (isoDate) => {
     const [year, month, day] = isoDate.split("-");
     return `${day}-${month}-${year}`;
@@ -356,39 +270,18 @@ const App = () => {
               <div>
                 <label className="block mb-1 font-medium">વસ્તુ નું નામ
                 </label>
-                {items.map((item, idx) => (
-                  <div key={idx} className="mb-4">
-                    <input
-                      list={`jewelry-options-${idx}`}
-                      className="border p-1 w-full"
-                      placeholder="Description"
-                      value={item.description}
-                      onChange={e => handleItemChange(idx, 'description', e.target.value)}
-                    />
-                    <datalist id={`jewelry-options-${idx}`}>
-                      {["Butti",
-                        "Set... Butti",
-                        "Kangan",
-                        "Locket",
-                        "Ring",
-                        "Bracelet",
-                        "Kadu",
-                        "Pocha",
-                        "Bandhi",
-                        "Chain",
-                        "Dokyu",
-                        "Chain..Pendal",
-                        "Tikko",
-                        "Pendal",
-                        "Latkan",
-                        "Kansher"
-                      ].map((option, i) => (
-                        <option key={i} value={option} />
-                      ))}
-                    </datalist>
-                  </div>
-                ))}
-
+                <input
+                  list={`jewelry-options-${idx}`}
+                  className="border p-1 w-full"
+                  placeholder="Description"
+                  value={item.description}
+                  onChange={e => handleItemChange(idx, 'description', e.target.value)}
+                />
+                <datalist id={`jewelry-options-${idx}`}>
+                  {options.map((option, i) => (
+                    <option key={i} value={option} />
+                  ))}
+                </datalist>
               </div>
               <div>
                 <label className="block mb-1 font-medium">સંખ્યા
@@ -667,7 +560,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-
