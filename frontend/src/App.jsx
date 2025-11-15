@@ -86,6 +86,12 @@ const App = () => {
     }]);
   };
 
+  const handleRemoveItem = (index) => {
+  if (items.length === 1) return; // prevent deleting the last item
+  setItems(items.filter((_, i) => i !== index));
+};
+
+
   const options = [
     "Set... Butti",
     "Kangan",
@@ -101,7 +107,11 @@ const App = () => {
     "Tikko",
     "Pendal",
     "Latkan",
-    "Kansher"
+    "Kansher",
+    "Zummar",
+    "Earrings",
+    "Mangal sutra",
+    "Kadli"
   ];
 
   const handleDownload = () => {
@@ -268,8 +278,16 @@ const App = () => {
         <h3 className="text-lg font-semibold mt-6 mb-2">ટેબલ મા વસ્તુ ઉમેરો
         </h3>
         {items.map((item, idx) => (
-          <div key={idx} className="border border-gray-300 p-4 rounded-xl shadow-sm mb-4">
+          <div key={idx} className="border border-gray-300 p-4 rounded-xl shadow-sm mb-4 relative">
+           {items.length > 1 ? ( <button
+  onClick={() => handleRemoveItem(idx)}
+  className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600"
+  disabled={items.length === 1}
+>
+  X
+</button>): ""}
             <div className="grid grid-cols-1 md:grid-cols-7 gap-2">
+
               <div>
                 <label className="block mb-1 font-medium">વસ્તુ નું નામ
                 </label>
