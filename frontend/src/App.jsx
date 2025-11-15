@@ -150,13 +150,15 @@ const App = () => {
     return `${day}-${month}-${year}`;
   };
 
-  const totals = items.reduce((acc, curr) => {
-    acc.gross += parseFloat(curr.grossWeight) || 0;
-    acc.stone += parseFloat(curr.stoneWeight) || 0;
-    acc.net += parseFloat(curr.netWeight) || 0;
-    acc.value += parseFloat(curr.value) || 0;
-    return acc;
-  }, { gross: 0, stone: 0, net: 0, value: 0 });
+const totals = items.reduce((acc, curr) => {
+  acc.quantity += parseFloat(curr.quantity) || 0;
+  acc.gross += parseFloat(curr.grossWeight) || 0;
+  acc.stone += parseFloat(curr.stoneWeight) || 0;
+  acc.net += parseFloat(curr.netWeight) || 0;
+  acc.value += parseFloat(curr.value) || 0;
+  return acc;
+}, { quantity: 0, gross: 0, stone: 0, net: 0, value: 0 });
+
 
   const finalAmount = ((totals.value * (parseFloat(percentage) || 0)) / 100).toFixed(2);
 
@@ -465,119 +467,144 @@ const App = () => {
           </p>
         </div>
         <div className="pt-6 px-10 text-xs overflow-x-auto">
-          <table className="w-full h-full  border-collapse border border-black text-center">
-            <thead
-              style={{ backgroundColor: "#f3f4f6" }}
-              className="font-medium text-[16px]"
-            >
-              <tr>
-                <th
-                  className="border border-black p-2 align-middle w-[50px]"
-                  rowSpan="2"
-                >
-                  SI. No.
-                </th>
-                {/* Main group column */}
-                <th
-                  className="border border-black p-2 align-middle w-[200px]"
-                  colSpan="2"
-                >
-                  Description of the Article
-                </th>
-                <th className="border border-black p-2 align-middle" rowSpan="2">
-                  Gross Weight
-                </th>
-                <th
-                  className="border border-black p-2 align-middle w-[100px]"
-                  rowSpan="2"
-                >
-                  Approx. weight of precious stones in the ornaments <br />
-                  (Grams)
-                </th>
-                <th
-                  className="border border-black p-2 align-middle w-[60px]"
-                  rowSpan="2"
-                >
-                  Purity <br />
-                  (Carat)
-                </th>
-                <th
-                  className="border border-black p-2 align-middle w-[70px]"
-                  rowSpan="2"
-                >
-                  Net Weight <br />
-                  (Grams)
-                </th>
-                <th
-                  className="border border-black p-2 align-middle w-[100px]"
-                  rowSpan="2"
-                >
-                  Market Value Rs.
-                </th>
-              </tr>
-              <tr>
-                {/* Split relative widths inside the group */}
-                <th className="border border-black px-1 py-2 align-middle w-[92%]">
-                  Name
-                </th>
-                <th className="border border-black px-1 py-2 align-middle w-[8%]">
-                  Qty.
-                </th>
-              </tr>
-            </thead>
+        <table className="w-full h-full  border-collapse border border-black text-center">
+  <thead
+    style={{ backgroundColor: "#f3f4f6" }}
+    className="font-medium text-[16px]"
+  >
+    <tr>
+      <th
+        className="border border-black p-2 align-middle w-[50px]"
+        rowSpan="2"
+      >
+        SI. No.
+      </th>
 
-            <tbody>
-              {items.map((item, index) => (
-                <tr key={index} className="text-[15px] bg-white">
-                  <td className="border border-black p-2 align-middle">
-                    {index + 1}
-                  </td>
-                  <td className="border border-black p-2 align-middle text-left">
-                    {item.description}
-                  </td>
-                  <td className="border border-black p-2 align-middle">
-                    {item.quantity}
-                  </td>
-                  <td className="border border-black p-2 align-middle">
-                    {item.grossWeight}
-                  </td>
-                  <td className="border border-black p-2 align-middle">
-                    {item.stoneWeight}
-                  </td>
-                  <td className="border border-black p-2 align-middle">
-                    {item.purity}
-                  </td>
-                  <td className="border border-black p-2 align-middle">
-                    {item.netWeight}
-                  </td>
-                  <td className="border border-black p-2 align-middle">
-                    {item.value}
-                  </td>
-                </tr>
-              ))}
-              <tr
-                style={{ backgroundColor: "#f3f4f6" }}
-                className="font-semibold text-[15px]"
-              >
-                <td className="border border-black p-2 align-middle" colSpan="3">
-                  Grand Total
-                </td>
-                <td className="border border-black p-2 align-middle">
-                  {totals.gross.toFixed(2)}
-                </td>
-                <td className="border border-black p-2 align-middle">
-                  {totals.stone.toFixed(2)}
-                </td>
-                <td className="border border-black p-2 align-middle">--</td>
-                <td className="border border-black p-2 align-middle">
-                  {totals.net.toFixed(2)}
-                </td>
-                <td className="border border-black p-2 align-middle">
-                  {totals.value.toFixed(2)}
-                </td>
-              </tr>
-            </tbody>
-          </table>
+      <th
+        className="border border-black p-2 align-middle w-[200px]"
+        colSpan="2"
+      >
+        Description of the Article
+      </th>
+
+      <th className="border border-black p-2 align-middle" rowSpan="2">
+        Gross Weight
+      </th>
+
+      <th
+        className="border border-black p-2 align-middle w-[100px]"
+        rowSpan="2"
+      >
+        Approx. weight of precious stones in the ornaments <br />
+        (Grams)
+      </th>
+
+      <th
+        className="border border-black p-2 align-middle w-[60px]"
+        rowSpan="2"
+      >
+        Purity <br />
+        (Carat)
+      </th>
+
+      <th
+        className="border border-black p-2 align-middle w-[70px]"
+        rowSpan="2"
+      >
+        Net Weight <br />
+        (Grams)
+      </th>
+
+      <th
+        className="border border-black p-2 align-middle w-[100px]"
+        rowSpan="2"
+      >
+        Market Value Rs.
+      </th>
+    </tr>
+
+    <tr>
+      <th className="border border-black px-1 py-2 align-middle w-[92%]">
+        Name
+      </th>
+      <th className="border border-black px-1 py-2 align-middle w-[8%]">
+        Qty.
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {items.map((item, index) => (
+      <tr key={index} className="text-[15px] bg-white">
+        <td className="border border-black p-2 align-middle">
+          {index + 1}
+        </td>
+
+        <td className="border border-black p-2 align-middle text-left">
+          {item.description}
+        </td>
+
+        <td className="border border-black p-2 align-middle">
+          {item.quantity}
+        </td>
+
+        <td className="border border-black p-2 align-middle">
+          {item.grossWeight}
+        </td>
+
+        <td className="border border-black p-2 align-middle">
+          {item.stoneWeight}
+        </td>
+
+        <td className="border border-black p-2 align-middle">
+          {item.purity}
+        </td>
+
+        <td className="border border-black p-2 align-middle">
+          {item.netWeight}
+        </td>
+
+        <td className="border border-black p-2 align-middle">
+          {item.value}
+        </td>
+      </tr>
+    ))}
+
+    {/* GRAND TOTAL ROW */}
+    <tr
+      style={{ backgroundColor: "#f3f4f6" }}
+      className="font-semibold text-[15px]"
+    >
+      <td className="border border-black p-2 align-middle" colSpan="2">
+        Grand Total
+      </td>
+
+      {/* NEW: Quantity Total */}
+      <td className="border border-black p-2 align-middle">
+        {totals.quantity.toFixed(0)}
+      </td>
+
+      <td className="border border-black p-2 align-middle">
+        {totals.gross.toFixed(2)}
+      </td>
+
+      <td className="border border-black p-2 align-middle">
+        {totals.stone.toFixed(2)}
+      </td>
+
+      <td className="border border-black p-2 align-middle">--</td>
+
+      <td className="border border-black p-2 align-middle">
+        {totals.net.toFixed(2)}
+      </td>
+
+      <td className="border border-black p-2 align-middle">
+        {totals.value.toFixed(2)}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 
 
         </div>
