@@ -18,6 +18,7 @@ const App = () => {
   });
 
   const [todaysRate, setTodaysRate] = useState('');
+  const [percentage, setPercentage] = useState('');
   const [items, setItems] = useState([
     {
       description: '',
@@ -146,6 +147,8 @@ const App = () => {
     acc.value += parseFloat(curr.value) || 0;
     return acc;
   }, { gross: 0, stone: 0, net: 0, value: 0 });
+
+  const finalAmount = ((totals.value * (parseFloat(percentage) || 0)) / 100).toFixed(2);
 
   return (
     <div className="w-screen min-h-screen bg-white p-5">
@@ -354,6 +357,32 @@ const App = () => {
         <button onClick={addItemRow} className="bg-green-500 text-white px-4 py-1 mt-2 rounded hover:bg-green-600">Add Row</button>
       </div>
 
+        {/* Percentage Section */}
+<div className="border border-gray-300 p-4 rounded-xl shadow-sm mb-6 w-[500px]">
+  <label className="block mb-2 font-medium text-lg">Percentage (%)</label>
+  
+  <div className="flex items-center gap-3">
+    <input
+      type="number"
+      placeholder="Enter %"
+      className="border p-2 w-[120px]"
+      value={percentage}
+      onChange={(e) => setPercentage(e.target.value)}
+    />
+
+    <span className="text-xl font-bold">×</span>
+
+    <div className="text-lg font-semibold">
+      {totals.value.toFixed(2)}
+    </div>
+
+    <span className="text-xl font-bold">=</span>
+
+    <div className="text-lg font-bold text-green-600 w-[120px]">
+      {finalAmount}
+    </div>
+  </div>
+</div>
 
       <button
         onClick={handleDownload}
